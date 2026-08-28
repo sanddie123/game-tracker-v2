@@ -1,0 +1,10 @@
+# Ignore configuration with actual secrets
+config.php
+
+# Ignore cached API tokens
+igdb_token.json
+
+# Ignore OS / IDE specific files
+.DS_Store
+.vscode/
+.idea/

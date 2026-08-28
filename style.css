@@ -1,0 +1,334 @@
+:root {
+  /* iOS Color Palette */
+  --bg-sidebar: #f2f2f7; /* System Gray 6 */
+  --bg-main: #ffffff;
+  --accent-blue: #007aff;
+  --accent-green: #34c759;
+  --accent-red: #ff3b30;
+  --text-main: #1c1c1e;
+  --text-muted: #8e8e93;
+
+  /* Shapes & Shadows */
+  --radius-widget: 18px;
+  --radius-cover: 12px;
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+  --widget-bg: #ffffff;
+}
+
+/* ================== THEME TRANSITIONS ================== */
+body,
+.ios-sidebar,
+.ios-main,
+.ios-bottom-nav,
+.ios-search input,
+.ios-widget-standard,
+.ios-game-card .bg-light {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+i,
+a,
+button,
+.text-muted,
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.tracking-tight {
+  letter-spacing: -0.5px;
+}
+.bg-accent-blue {
+  background-color: var(--accent-blue) !important;
+}
+.bg-accent-green {
+  background-color: var(--accent-green) !important;
+}
+.bg-accent-red {
+  background-color: var(--accent-red) !important;
+  text-color: white;
+}
+
+/* ================== SIDEBAR ================== */
+.ios-sidebar {
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ios-widget {
+  border-radius: var(--radius-widget);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  border: none;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.ios-widget:hover {
+  transform: scale(1.02);
+}
+.ios-widget.active-widget {
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+.ios-nav-list .nav-link {
+  color: var(--text-main);
+  padding: 10px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+.ios-nav-list .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ================== MAIN CONTENT ================== */
+.ios-main {
+  background-color: var(--bg-main);
+}
+
+.ios-search input {
+  background-color: var(--bg-sidebar);
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.ios-search input:focus {
+  background-color: #e5e5ea;
+  box-shadow: none;
+}
+
+/* ================== GAME CARDS ================== */
+.ios-game-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.ios-game-card:hover .ios-cover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.ios-cover {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-cover);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.ios-game-card .badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.35em 0.65em;
+  letter-spacing: 0.2px;
+}
+
+/* ================== MOBILE NAV ================== */
+.ios-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.ios-bottom-nav a {
+  color: var(--text-muted);
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  flex: 1;
+}
+.ios-bottom-nav a.active {
+  color: var(--accent-blue);
+}
+.ios-bottom-nav i {
+  font-size: 1.25rem;
+  margin-bottom: 3px;
+}
+
+/* ================== DARK MODE ================== */
+[data-theme="dark"] {
+  --bg-sidebar: #1c1c1e;
+  --bg-main: #000000;
+  --text-main: #ffffff;
+  --text-muted: #8e8e93;
+  --close-invert: 1;
+  --widget-bg: #2c2c2e;
+}
+
+[data-theme="dark"] .ios-widget-standard,
+[data-theme="dark"] .ios-search input,
+[data-theme="dark"] .ios-game-card .bg-light {
+  background-color: #2c2c2e !important;
+  color: var(--text-main) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.ios-nav-list .nav-link,
+.ios-nav-list .nav-link span {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .ios-bottom-nav {
+  background-color: rgba(28, 28, 30, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .ios-sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ================== GRID VIEW LOGIC ================== */
+.ios-segmented-control {
+  background-color: rgba(142, 142, 147, 0.12);
+  border-radius: 8px;
+  padding: 2px;
+  display: inline-flex;
+}
+.ios-segmented-control button {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 12px;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+.ios-segmented-control button.active {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.grid-detailed .ios-game-card {
+  border-radius: var(--radius-cover);
+}
+.grid-detailed .compact-badges {
+  display: none !important;
+}
+.grid-detailed .details-block {
+  display: block;
+}
+
+.grid-compact .details-block {
+  display: none !important;
+}
+.grid-compact .compact-badges {
+  display: flex !important;
+}
+
+.ios-widget-standard {
+  background-color: var(--widget-bg);
+  color: var(--text-main);
+}
+
+.ios-search input {
+  color: var(--text-main);
+}
+.ios-search input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ================== DETAIL MODAL ================== */
+.ios-detail-modal {
+  border-radius: 24px;
+  border: none;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.modal-header-blurred {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: background-image 0.3s ease;
+}
+
+.modal-header-blurred::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(25px) saturate(1.5);
+  -webkit-backdrop-filter: blur(25px) saturate(1.5);
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+.z-3 {
+  z-index: 3;
+}
+
+.ios-input {
+  background-color: var(--bg-sidebar);
+  border: none;
+  color: var(--text-main);
+  border-radius: 12px;
+}
+.ios-input:focus {
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  box-shadow: 0 0 0 0.25rem rgba(0, 122, 255, 0.25);
+}
+
+[data-theme="dark"] .ios-input {
+  background-color: #2c2c2e;
+}
+[data-theme="dark"] .ios-input option {
+  background-color: #2c2c2e;
+}
+
+/* ================== FILTER ACTIVE STATES ================== */
+.active-filter-link {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+[data-theme="dark"] .active-filter-link {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ================== LIST GROUPS ================== */
+.ios-list-group .list-group-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+.ios-list-group .list-group-item:last-child {
+  border-bottom: none !important;
+}
+[data-theme="dark"] .ios-list-group .list-group-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
